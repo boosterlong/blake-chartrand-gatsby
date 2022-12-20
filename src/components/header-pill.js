@@ -19,7 +19,7 @@ export function HeaderPill(props) {
       border-[#115f00]/30
       p-5 sm:p-0 sm:pl-5"
     >
-      <div className="my-auto">
+      <div className="my-auto mr-5">
         <Link
           className="text-5xl font-bold drop-shadow-chunky transition-all hover:drop-shadow-chunkyhover"
           to="/"
@@ -35,7 +35,7 @@ export function HeaderPill(props) {
       <StaticImage
         src={'../images/headshot.jpg'}
         alt={props.alt}
-        className="hidden sm:block rounded-r-[25px] h-full w-40"
+        className="rounded-[25px] sm:rounded-l-[0px] h-full w-40"
       />
     </div>)
 }
