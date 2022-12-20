@@ -1,50 +1,34 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import "../index.css"
+import { SocialRow } from "./social-row"
+import { Helmet } from "react-helmet"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+    <div className="m-3">
+      <Helmet>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+      </Helmet>
+      <Header siteTitle={`Blake Chartrand`} />
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
+        className="mx-auto max-w-3xl"
       >
-        <main>{children}</main>
+        <main>
+          {(children.length > 1) ?
+            children.map(child => <div className="bg-white border border-[#115f00]/30 h-fit p-5 my-5 rounded-[25px]">{child}</div>)
+            : <div className="bg-white border border-[#115f00]/30 h-fit p-5 my-5 rounded-[25px]">{children}</div>}
+        </main>
+        <SocialRow />
         <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
+          className="bg-white py-2.5 px-5 rounded-lg fixed bottom-0 right-5"
         >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          © {new Date().getFullYear()} &middot; Blake Chartrand &middot; Background by <a className="text-accent" href="https://heropatterns.com/">Hero Patterns</a>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 
