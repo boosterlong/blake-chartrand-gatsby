@@ -22,6 +22,7 @@ const Layout = ({ children }) => {
             : <div className="bg-white border border-[#115f00]/30 h-fit p-5 my-5 rounded-[25px]">{children}</div>}
         </main>
         <SocialRow />
+        <div className="h-10"></div>
         <footer
           className="bg-white py-2.5 px-5 rounded-lg fixed bottom-0 right-5"
         >
