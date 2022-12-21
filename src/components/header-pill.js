@@ -36,6 +36,7 @@ export function HeaderPill(props) {
         src={'../images/headshot.jpg'}
         alt={props.alt}
         className="rounded-[25px] sm:rounded-l-[0px] h-full w-40"
+        imgStyle={{ borderRadius: '25px' }}
       />
     </div>)
 }
